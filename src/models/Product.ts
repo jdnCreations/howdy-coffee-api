@@ -11,7 +11,7 @@ interface ProductAttributes {
 }
 
 interface ProductCreationAttributes
-  extends Optional<ProductAttributes, 'description' | 'imageUrl'> {}
+  extends Optional<ProductAttributes, 'id' | 'description' | 'imageUrl'> {}
 
 class Product extends Model<ProductAttributes, ProductCreationAttributes> {}
 
