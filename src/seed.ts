@@ -1,5 +1,9 @@
+import { UUID } from 'sequelize';
+import Cart from './models/Cart.js';
 import Category from './models/Category.js';
 import Product from './models/Product.js';
+import { randomUUID } from 'crypto';
+import CartItem from './models/CartItem.js';
 
 // FOR DEVELOPMENT ONLY
 const seedDB = async () => {
@@ -20,6 +24,7 @@ const seedDB = async () => {
   });
 
   await Product.create({
+    id: 1,
     categoryId: 1,
     name: 'A.M Accolade',
     price: 22.0,
@@ -83,6 +88,17 @@ const seedDB = async () => {
     categoryId: 3,
     name: 'Howdy Coffee Co. Classic Socks',
     price: 15.0,
+  });
+
+  await Cart.create({
+    id: 1,
+    cartToken: randomUUID(),
+  });
+
+  await CartItem.create({
+    cartId: 1,
+    productId: 1,
+    quantity: 2,
   });
 };
 
