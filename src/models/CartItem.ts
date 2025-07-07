@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { sequelize } from '../db.js';
+import Product from './Product.js';
 
 interface CartItemAttributes {
   id: number;
@@ -11,7 +12,9 @@ interface CartItemAttributes {
 interface CartItemCreationAttributes
   extends Optional<CartItemAttributes, 'id'> {}
 
-class CartItem extends Model<CartItemAttributes, CartItemCreationAttributes> {}
+class CartItem extends Model<CartItemAttributes, CartItemCreationAttributes> {
+  public product?: Product;
+}
 
 CartItem.init(
   {

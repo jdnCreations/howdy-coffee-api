@@ -1,9 +1,11 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { sequelize } from '../db.js';
+import CartItem from './CartItem.js';
 
 interface CartAttributes {
   id: number;
   cartToken: string;
+  items?: CartItem[];
 }
 
 interface CartCreationAttributes extends Optional<CartAttributes, 'id'> {}

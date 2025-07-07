@@ -5,6 +5,7 @@ import seedDB from './seed.js';
 import categoryRouter from './routes/categoryRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import cors from 'cors';
+import cartRouter from './routes/cartRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/api/categories', categoryRouter);
 app.use('/api/products', productRouter);
+app.use('/api/carts', cartRouter);
 
 const startServer = async () => {
   await connectDB();
