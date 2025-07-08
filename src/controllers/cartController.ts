@@ -237,6 +237,7 @@ export const updateCartItemQuantity = async (req: Request, res: Response) => {
 };
 
 export const removeCartItem = async (req: Request, res: Response) => {
+  console.log(`body: ${req.body}`);
   const { cartToken } = req.params;
   const { productId } = req.body;
   if (!cartToken) {
@@ -248,6 +249,8 @@ export const removeCartItem = async (req: Request, res: Response) => {
     res.status(400).json({ message: 'Invalid productId' });
     return;
   }
+
+  console.log(cartToken, productId);
 
   try {
     const cart = await Cart.findOne({ where: { cartToken } });
