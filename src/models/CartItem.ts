@@ -12,9 +12,7 @@ interface CartItemAttributes {
 interface CartItemCreationAttributes
   extends Optional<CartItemAttributes, 'id'> {}
 
-class CartItem extends Model<CartItemAttributes, CartItemCreationAttributes> {
-  public product?: Product;
-}
+class CartItem extends Model<CartItemAttributes, CartItemCreationAttributes> {}
 
 CartItem.init(
   {
